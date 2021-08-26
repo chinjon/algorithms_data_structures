@@ -16,9 +16,9 @@ function caesarCipher(s, k) {
     if (stringArr[i].match(regex)) {
       console.log(s.charCodeAt(i))
       let letterCode = s.charCodeAt(i);
-      if (letterCode === zCode) {
+      if (letterCode + k > zCode) {
 
-      } else if (letterCode === ZCode) {
+      } else if (letterCode + k === ZCode) {
 
       } else {
         arr.push(String.fromCharCode(letterCode + k))
