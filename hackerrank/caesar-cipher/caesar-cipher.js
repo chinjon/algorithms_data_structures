@@ -14,15 +14,17 @@ function caesarCipher(s, k) {
 
   for (let i = 0; i < stringArr.length; i++) {
     if (stringArr[i].match(regex)) {
-      console.log(s.charCodeAt(i))
-      let letterCode = s.charCodeAt(i);
-      if (letterCode + k > zCode) {
 
-      } else if (letterCode + k === ZCode) {
-
+      if(stringArr[i] === stringArr[i].upperCase()) {
+        if (letterCode + k > ZCode) {
+          arr.push(String.fromCharCode((letterCode + k) - ZCode) + ACode);
+        } else {
+          arr.push(String.fromCharCode(letterCode + k));
+        }
       } else {
-        arr.push(String.fromCharCode(letterCode + k))
+        if (letterCode + k > ACode) {}
       }
+      // console.log(s.charCodeAt(i))
     } else {
       arr.push(stringArr[i])
     }
