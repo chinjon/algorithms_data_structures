@@ -13,26 +13,34 @@ function caesarCipher(s, k) {
 
 
   for (let i = 0; i < stringArr.length; i++) {
+    const letterCode = stringArr[i].charCodeAt(0)
     if (stringArr[i].match(regex)) {
+      if(stringArr[i] === stringArr[i].toUpperCase()) {
+        if(letterCode===ZCode) {
 
-      if(stringArr[i] === stringArr[i].upperCase()) {
-        if (letterCode + k > ZCode) {
-          arr.push(String.fromCharCode((letterCode + k) - ZCode) + ACode);
+          arr.push(String.fromCharCode(ACode + k - 1));
+        } else if (letterCode + k > ZCode) {
+          arr.push(String.fromCharCode(((letterCode + k) - ZCode) + ACode - 1));
         } else {
           arr.push(String.fromCharCode(letterCode + k));
         }
       } else {
-        if (letterCode + k > ACode) {}
+        if (letterCode === zCode) {
+          arr.push(String.fromCharCode(aCode + k - 1))
+        } else if (letterCode + k > zCode) {
+          arr.push(String.fromCharCode(((letterCode + k) - zCode) + aCode - 1));
+        } else {
+          arr.push(String.fromCharCode(letterCode + k))
+        }
       }
-      // console.log(s.charCodeAt(i))
     } else {
       arr.push(stringArr[i])
     }
   }
 
 
-  console.log(arr.join(''))
+  return(arr.join(''))
 
 }
 
-caesarCipher('middle-Outz', 2)
+console.log(caesarCipher('middle-Outz', 2))
